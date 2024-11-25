@@ -5,24 +5,29 @@ import styles from "./grid.module.css";
 
 export type GridBodyProps = {
   tasks: Task[];
+  errorDates: Date[];
   dates: Date[];
   svgWidth: number;
   rowHeight: number;
   columnWidth: number;
   todayColor: string;
+  errorDayColor: string;
   rtl: boolean;
 };
 export const GridBody: React.FC<GridBodyProps> = ({
   tasks,
+  errorDates,
   dates,
   rowHeight,
   svgWidth,
   columnWidth,
   todayColor,
+  errorDayColor,
   rtl,
 }) => {
   let y = 0;
   const gridRows: ReactChild[] = [];
+  const gridErrorDates: ReactChild[] = [];
   const rowLines: ReactChild[] = [
     <line
       key="RowLineFirst"
@@ -73,6 +78,22 @@ export const GridBody: React.FC<GridBodyProps> = ({
         className={styles.gridTick}
       />
     );
+
+    if (errorDates.some(errorDate => {
+      return errorDate.getTime() == date.getTime()
+    })) {
+      gridErrorDates.push(
+        <rect
+          key={date.getTime()}
+          x={tickX}
+          y={0}
+          width={columnWidth}
+          height={y}
+          fill={errorDayColor}
+        />
+      );
+    }
+
     if (
       (i + 1 !== dates.length &&
         date.getTime() < now.getTime() &&
@@ -122,6 +143,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
       <g className="rowLines">{rowLines}</g>
       <g className="ticks">{ticks}</g>
       <g className="today">{today}</g>
+      <g className="errorDate">{gridErrorDates}</g>
     </g>
   );
 };

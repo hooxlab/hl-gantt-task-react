@@ -113,6 +113,7 @@ export interface StylingOption {
   arrowColor?: string;
   arrowIndent?: number;
   todayColor?: string;
+  errorDayColor?: string;
   TooltipContent?: React.FC<{
     task: Task;
     fontSize: string;
@@ -142,4 +143,5 @@ export interface StylingOption {
 
 export interface GanttProps extends EventOption, DisplayOption, StylingOption {
   tasks: Task[];
+  errorDates: Date[];
 }

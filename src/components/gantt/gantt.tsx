@@ -26,6 +26,7 @@ import styles from "./gantt.module.css";
 
 export const Gantt: React.FunctionComponent<GanttProps> = ({
   tasks,
+  errorDates,
   headerHeight = 50,
   columnWidth = 60,
   listCellWidth = "155px",
@@ -54,6 +55,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
   fontSize = "14px",
   arrowIndent = 20,
   todayColor = "rgba(252, 248, 227, 0.5)",
+  errorDayColor = "rgba(255, 0, 0, 0.5)",
   viewDate,
   TooltipContent = StandardTooltipContent,
   TaskListHeader = TaskListHeaderDefault,
@@ -391,9 +393,11 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     columnWidth,
     svgWidth,
     tasks: tasks,
+    errorDates: errorDates,
     rowHeight,
     dates: dateSetup.dates,
     todayColor,
+    errorDayColor,
     rtl,
   };
   const calendarProps: CalendarProps = {

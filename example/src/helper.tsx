@@ -97,6 +97,16 @@ export function initTasks() {
   return tasks;
 }
 
+export function initErrorDates() {
+  const currentDate = new Date();
+  const errDates: Date[] = [
+    new Date(currentDate.getFullYear(), currentDate.getMonth(), 1, 12, 0),
+    new Date(currentDate.getFullYear(), currentDate.getMonth(), 15, 0, 0),
+    new Date(currentDate.getFullYear(), currentDate.getMonth(), 4),
+  ];
+  return errDates;
+}
+
 export function getStartEndDateForProject(tasks: Task[], projectId: string) {
   const projectTasks = tasks.filter(t => t.project === projectId);
   let start = projectTasks[0].start;
