@@ -1,5 +1,11 @@
 # gantt-task-react
 
+## Whats new
+
+It's a fork of https://matematuk.github.io/gantt-task-react/ thats add some funciontality, such as:
+- The ability to add a list of error dates with a custom background color
+- Customizable date format
+
 ## Interactive Gantt Chart for React with TypeScript.
 
 ![example](https://user-images.githubusercontent.com/26743903/88215863-f35d5f00-cc64-11ea-81db-e829e6e9b5c8.png)
@@ -9,7 +15,7 @@
 ## Install
 
 ```
-npm install gantt-task-react
+npm install hl-gantt-task-react
 ```
 
 ## How to use it
