@@ -10,10 +10,12 @@ import {
 } from "../../helpers/date-helper";
 import { DateSetup } from "../../types/date-setup";
 import styles from "./calendar.module.css";
+import { format } from 'date-fns';
 
 export type CalendarProps = {
   dateSetup: DateSetup;
   locale: string;
+  dateFormat?: string;
   viewMode: ViewMode;
   rtl: boolean;
   headerHeight: number;
@@ -25,6 +27,7 @@ export type CalendarProps = {
 export const Calendar: React.FC<CalendarProps> = ({
   dateSetup,
   locale,
+  dateFormat,
   viewMode,
   rtl,
   headerHeight,
@@ -127,7 +130,7 @@ export const Calendar: React.FC<CalendarProps> = ({
     const topDefaultHeight = headerHeight * 0.5;
     for (let i = 0; i < dateSetup.dates.length; i++) {
       const date = dateSetup.dates[i];
-      const bottomValue = getLocaleMonth(date, locale);
+      const bottomValue = dateFormat ? format(date, dateFormat) : getLocaleMonth(date, locale);
       bottomValues.push(
         <text
           key={bottomValue + date.getFullYear()}
@@ -221,7 +224,7 @@ export const Calendar: React.FC<CalendarProps> = ({
     const dates = dateSetup.dates;
     for (let i = 0; i < dates.length; i++) {
       const date = dates[i];
-      const bottomValue = `${getLocalDayOfWeek(date, locale, "short")}, ${date
+      const bottomValue = dateFormat ? format(date, dateFormat) : `${getLocalDayOfWeek(date, locale, "short")}, ${date
         .getDate()
         .toString()}`;
 
@@ -286,7 +289,7 @@ export const Calendar: React.FC<CalendarProps> = ({
         </text>
       );
       if (i === 0 || date.getDate() !== dates[i - 1].getDate()) {
-        const topValue = `${getLocalDayOfWeek(
+        const topValue = dateFormat ? format(date, dateFormat) : `${getLocalDayOfWeek(
           date,
           locale,
           "short"
@@ -332,7 +335,7 @@ export const Calendar: React.FC<CalendarProps> = ({
       );
       if (i !== 0 && date.getDate() !== dates[i - 1].getDate()) {
         const displayDate = dates[i - 1];
-        const topValue = `${getLocalDayOfWeek(
+        const topValue = dateFormat ? format(date, dateFormat) : `${getLocalDayOfWeek(
           displayDate,
           locale,
           "long"
