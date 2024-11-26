@@ -1,6 +1,6 @@
 {
   "name": "hl-gantt-task-react",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Interactive Gantt Chart for React with TypeScript.",
   "author": "Matteo Frigé <frige@hooxlab.com>",
   "homepage": "https://github.com/hooxlab/hl-gantt-task-react",
