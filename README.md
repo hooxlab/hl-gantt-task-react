@@ -69,6 +69,7 @@ npm start
 | Parameter Name                  | Type          | Description                                        |
 | :------------------------------ | :------------ | :------------------------------------------------- |
 | tasks\*                         | [Task](#Task) | Tasks array.                                       |
+| errorDates\*                    | [Date]        | A dates array is useful for highlighting specific date columns, such as to indicate alerts.                                       |
 | [EventOption](#EventOption)     | interface     | Specifies gantt events.                            |
 | [DisplayOption](#DisplayOption) | interface     | Specifies view type and display timeline language. |
 | [StylingOption](#StylingOption) | interface     | Specifies chart and global tasks styles            |
@@ -96,6 +97,7 @@ npm start
 | viewDate       | date    | Specifies display date and time for display.                                                                |
 | preStepsCount  | number  | Specifies empty space before the fist task                                                                  |
 | locale         | string  | Specifies the month name language. Able formats: ISO 639-2, Java Locale.                                    |
+| dateFormat     | string  | Specifies custom date format string. Ex: 'dd/MM/yyyy'                                                       |
 | rtl            | boolean | Sets rtl mode.                                                                                              |
 
 ### StylingOption
@@ -119,6 +121,7 @@ npm start
 | arrowColor                 | string | Specifies the relationship arrow fill color.                                                   |
 | arrowIndent                | number | Specifies the relationship arrow right indent. Sets in px                                      |
 | todayColor                 | string | Specifies the current period column fill color.                                                |
+| errorDayColor              | string | Specifies the error day column fill color.                                                     |
 | TooltipContent             |        | Specifies the Tooltip view for selected taskbar.                                               |
 | TaskListHeader             |        | Specifies the task list Header view                                                            |
 | TaskListTable              |        | Specifies the task list Table view                                                             |
